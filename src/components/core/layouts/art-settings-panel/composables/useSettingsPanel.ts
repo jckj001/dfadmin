@@ -170,6 +170,8 @@ export function useSettingsPanel() {
       stopWatch()
       themeCleanup?.()
       cleanup()
+      // 清理事件监听，防止内存泄漏
+      mittBus.off('openSetting', openSetting)
     }
 
     return {
